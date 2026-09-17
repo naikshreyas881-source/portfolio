@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, FileText, Settings, ExternalLink } from 'lucide-react';
+import { resolveAssetUrl } from '../utils/assets';
 import { ThemeToggle } from './ThemeToggle';
 import { usePortfolio } from '../context/PortfolioContext';
 
@@ -109,7 +110,7 @@ export const Navbar: React.FC = () => {
         <div className="hidden md:flex items-center gap-2.5">
           {data.contact.resume && (
             <a
-              href={data.contact.resume}
+              href={resolveAssetUrl(data.contact.resume)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-zinc-100/80 dark:bg-zinc-800/60 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 text-xs font-medium transition-colors"
@@ -177,7 +178,7 @@ export const Navbar: React.FC = () => {
           <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800 flex flex-col gap-2">
             {data.contact.resume && (
               <a
-                href={data.contact.resume}
+                href={resolveAssetUrl(data.contact.resume)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-sm font-medium text-zinc-800 dark:text-zinc-200"

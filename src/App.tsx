@@ -24,7 +24,7 @@ export const App: React.FC = () => {
   return (
     <ThemeProvider>
       <PortfolioProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Home />} />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, FileText, Code2, MapPin, Mail, Sparkles } from 'lucide-react';
+import { resolveAssetUrl } from '../utils/assets';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 import { usePortfolio } from '../context/PortfolioContext';
 
@@ -77,7 +78,7 @@ export const Hero: React.FC = () => {
 
             {contact.resume && (
               <a
-                href={contact.resume}
+                href={resolveAssetUrl(contact.resume)}
                 download
                 className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-zinc-300 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-600 bg-white dark:bg-zinc-900/80 text-zinc-800 dark:text-zinc-200 font-medium text-sm transition-all"
               >
