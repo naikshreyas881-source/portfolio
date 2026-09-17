@@ -30,3 +30,34 @@ export const LinkedinIcon: React.FC<{ className?: string }> = ({ className = 'w-
     <circle cx="4" cy="4" r="2" />
   </svg>
 );
+
+export const LeetCodeIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M16 3l-4 4 4 4" />
+    <path d="M8 21l4-4-4-4" />
+    <path d="M18 12H6" />
+  </svg>
+);
+
+export const TwitterIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M4 4l11.733 16h4.267l-11.733-16z" />
+    <path d="M4 20l6.768-6.768m2.464-2.464l6.768-6.768" />
+  </svg>
+);

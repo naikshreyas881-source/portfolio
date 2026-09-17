@@ -24,7 +24,7 @@ export const initialPortfolioData: PortfolioData = {
     name: "Shreyas Naik",
     role: "Computer Science & Engineering Student | Aspiring Software Engineer",
     headline: "Engineering robust full-stack platforms and solving algorithmic problems with clean architecture.",
-    bio: "Computer Science & Engineering student at JNN College of Engineering (Class of 2027) based in Karnataka, India. Passionate about full-stack engineering, distributed systems, and data structures & algorithms.",
+    bio: "Computer Science & Engineering student at JNN College of Engineering (JNNCE '28) based in Karnataka, India. Passionate about full-stack engineering, distributed systems, and data structures & algorithms.",
     aboutText: [
       "I am an undergraduate Computer Science & Engineering student driven by building dependable software systems that solve real-world operational problems. My focus centers on full-stack architecture, clean code principles, and efficient algorithms.",
       "Currently deepening my understanding of Data Structures & Algorithms, React, Node.js, and relational database design. I take pride in understanding systems from first principles — from database transactions and idempotent network sync to performant UI rendering.",
@@ -35,11 +35,13 @@ export const initialPortfolioData: PortfolioData = {
     state: "Karnataka",
     country: "India",
     degree: "Bachelor of Engineering in Computer Science & Engineering",
+    branch: "Computer Science & Engineering",
     college: "JNN College of Engineering",
-    graduationYear: 2027,
+    graduationYear: 2028,
+    graduationLabel: "JNNCE '28",
     statusAvailability: "Actively seeking 2025/2026 internships & collaborative projects",
     recruiterHighlights: [
-      "B.E. Computer Science & Engineering (2023–2027)",
+      "B.E. Computer Science & Engineering — JNNCE '28",
       "Hands-on Full-Stack engineering (React, TypeScript, Node.js, SQL)",
       "Strong algorithmic foundation with continuous DSA practice",
       "Building resilient offline-first architectures (FarmGrid)",
@@ -327,10 +329,13 @@ export const initialPortfolioData: PortfolioData = {
       degree: "Bachelor of Engineering (B.E.)",
       field: "Computer Science & Engineering",
       institution: "JNN College of Engineering (JNNCE)",
-      startYear: 2023,
-      endYear: 2027,
-      cgpa: "",          // Update when desired
-      semester: "Undergraduate",
+      startYear: 2024,
+      endYear: 2028,
+      cgpa: "8.85",
+      gradingScale: "10.0",
+      academicStanding: "First Class with Distinction",
+      semester: "4th Semester",
+      transcriptAvailable: true,
       relevantCoursework: [
         "Data Structures & Algorithms",
         "Database Management Systems (DBMS)",
@@ -342,7 +347,37 @@ export const initialPortfolioData: PortfolioData = {
       academicAchievements: [
         "Active member of Department of Computer Science student activities",
         "Consistent technical focus on web technologies and competitive coding"
-      ]
+      ],
+      semesterRecords: [
+        {
+          id: "sem-1",
+          semester: "1st Semester",
+          sgpa: "8.75",
+          cgpa: "8.75",
+          credits: "20",
+          status: "Completed",
+          notes: "Core Engineering Foundations & Mathematics"
+        },
+        {
+          id: "sem-2",
+          semester: "2nd Semester",
+          sgpa: "8.90",
+          cgpa: "8.82",
+          credits: "20",
+          status: "Completed",
+          notes: "Problem Solving via C & Engineering Science"
+        },
+        {
+          id: "sem-3",
+          semester: "3rd Semester",
+          sgpa: "8.92",
+          cgpa: "8.85",
+          credits: "22",
+          status: "Completed",
+          notes: "Data Structures & Applications, OOP with Java"
+        }
+      ],
+      visible: true
     }
   ],
 
@@ -407,5 +442,78 @@ export const initialPortfolioData: PortfolioData = {
       username: "",
       url: ""
     }
-  ]
+  ],
+
+  // ==========================================================
+  // 12. SOCIAL LINKS
+  // ==========================================================
+  socialLinks: [
+    {
+      id: "sl-1",
+      platform: "GitHub",
+      username: "naikshreyas881-source",
+      url: "https://github.com/naikshreyas881-source",
+      icon: "github",
+      displayOrder: 1,
+      visible: true
+    },
+    {
+      id: "sl-2",
+      platform: "LinkedIn",
+      username: "shreyasnaik",
+      url: "https://linkedin.com/in/shreyasnaik",
+      icon: "linkedin",
+      displayOrder: 2,
+      visible: true
+    },
+    {
+      id: "sl-3",
+      platform: "LeetCode",
+      username: "shreyasnaik",
+      url: "https://leetcode.com/shreyasnaik",
+      icon: "code",
+      displayOrder: 3,
+      visible: true
+    }
+  ],
+
+  // ==========================================================
+  // 13. RESUME CONFIGURATION
+  // ==========================================================
+  resume: {
+    resumePath: "/resume.pdf",
+    resumeUrl: "",
+    enabled: true
+  },
+
+  // ==========================================================
+  // 14. GLOBAL SETTINGS
+  // ==========================================================
+  settings: {
+    siteTitle: "Shreyas Naik — Software Engineer Portfolio",
+    browserTitle: "Shreyas Naik | Computer Science Student & Aspiring Software Engineer | JNNCE '28",
+    seoDescription: "Personal developer portfolio and engineering case studies of Shreyas Naik, Computer Science & Engineering undergraduate at JNNCE (Class of 2028). Full-stack development, algorithms, and system design.",
+    accentColor: "emerald",
+    defaultTheme: "dark",
+    navbarVisible: true,
+    footerVisible: true,
+    resumeButtonVisible: true,
+    contactSectionVisible: true,
+    socialLinksVisible: true,
+    animationIntensity: "full",
+    sectionVisibility: {
+      about: true,
+      skills: true,
+      projects: true,
+      experience: true,
+      education: true,
+      cgpa: true,
+      certifications: true,
+      achievements: true,
+      learning: true,
+      journey: true,
+      codingProfiles: true,
+      contact: true
+    }
+  }
 };

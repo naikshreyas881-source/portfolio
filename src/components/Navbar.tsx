@@ -19,7 +19,7 @@ export const Navbar: React.FC = () => {
 
       if (!isHomePage) return;
 
-      const sections = ['about', 'skills', 'learning', 'projects', 'experience', 'journey', 'contact'];
+      const sections = ['about', 'skills', 'projects', 'education', 'academics', 'learning', 'experience', 'journey', 'contact'];
       const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
@@ -39,15 +39,28 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHomePage]);
 
+  const visibility = data.settings?.sectionVisibility || {
+    about: true,
+    skills: true,
+    projects: true,
+    learning: true,
+    experience: true,
+    education: true,
+    cgpa: true,
+    journey: true,
+    contact: true,
+  };
+
   const navLinks = [
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Learning', href: '#learning' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Journey', href: '#journey' },
-    { label: 'Contact', href: '#contact' },
-  ];
+    { id: 'about', label: 'About', href: '#about', visible: visibility.about !== false },
+    { id: 'skills', label: 'Skills', href: '#skills', visible: visibility.skills !== false },
+    { id: 'projects', label: 'Projects', href: '#projects', visible: visibility.projects !== false },
+    { id: 'academics', label: 'Academics', href: '#academics', visible: (visibility.cgpa !== false || visibility.education !== false) },
+    { id: 'learning', label: 'Learning', href: '#learning', visible: visibility.learning !== false && Boolean(data.learningGoals?.length) },
+    { id: 'experience', label: 'Experience', href: '#experience', visible: visibility.experience !== false && Boolean(data.experience?.length) },
+    { id: 'journey', label: 'Journey', href: '#journey', visible: visibility.journey !== false && Boolean(data.journey?.length) },
+    { id: 'contact', label: 'Contact', href: '#contact', visible: visibility.contact !== false },
+  ].filter((item) => item.visible);
 
   return (
     <header
@@ -71,7 +84,7 @@ export const Navbar: React.FC = () => {
               {data.profile.name}
             </span>
             <span className="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono leading-none">
-              JNNCE &apos;27
+              {data.profile.graduationLabel || "JNNCE '28"}
             </span>
           </div>
         </Link>

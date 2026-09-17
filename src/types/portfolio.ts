@@ -11,8 +11,9 @@ export interface Project {
   date: string;
   technologies: string[];
   features: string[];
+  problem?: string;
+  solution?: string;
   challenges: string;
-  solution: string;
   learning: string;
   githubUrl: string;
   liveUrl: string;
@@ -23,15 +24,23 @@ export interface Project {
   featured: boolean;
   teamSize: string;
   role: string;
+  howItWorks?: string;
+  displayOrder?: number;
+  visible?: boolean;
 }
 
 export type SkillCategory =
   | 'Languages'
+  | 'Programming Languages'
   | 'Frontend'
   | 'Backend'
   | 'Databases'
+  | 'Database'
   | 'Tools & Platforms'
+  | 'Tools'
   | 'Core CS'
+  | 'Computer Science'
+  | 'Other'
   | string;
 
 export interface Skill {
@@ -40,6 +49,10 @@ export interface Skill {
   category: SkillCategory;
   level: number; // 0-100 (Self-assessed progress)
   currentlyLearning: boolean;
+  description?: string;
+  relatedProjects?: string[];
+  displayOrder?: number;
+  visible?: boolean;
 }
 
 export interface LearningGoal {
@@ -50,7 +63,13 @@ export interface LearningGoal {
   topicsCompleted: string[];
   topicsRemaining: string[];
   startDate: string;
+  targetDate?: string;
   lastUpdated: string;
+  notes?: string;
+  priority?: 'High' | 'Medium' | 'Low';
+  currentlyLearning?: boolean;
+  displayOrder?: number;
+  visible?: boolean;
 }
 
 export interface JourneyMilestone {
@@ -59,6 +78,10 @@ export interface JourneyMilestone {
   title: string;
   description: string;
   category: 'Milestone' | 'Project' | 'Learning' | 'Hackathon' | string;
+  link?: string;
+  image?: string;
+  displayOrder?: number;
+  visible?: boolean;
 }
 
 export interface ExperienceItem {
@@ -67,12 +90,25 @@ export interface ExperienceItem {
   role: string;
   startDate: string;
   endDate: string;
+  currentPosition?: boolean;
   description: string;
   responsibilities: string[];
   technologies: string[];
   companyUrl?: string;
   location?: string;
   isAcademicOrLearning?: boolean;
+  displayOrder?: number;
+  visible?: boolean;
+}
+
+export interface SemesterRecord {
+  id: string;
+  semester: string;
+  cgpa: string;
+  sgpa?: string;
+  credits?: string;
+  status?: string;
+  notes?: string;
 }
 
 export interface EducationItem {
@@ -83,10 +119,15 @@ export interface EducationItem {
   startYear: number | string;
   endYear: number | string;
   cgpa?: string;
+  gradingScale?: string;
+  academicStanding?: string;
+  transcriptAvailable?: boolean;
   semester?: string;
   semesterCgpa?: string;
   relevantCoursework: string[];
   academicAchievements?: string[];
+  semesterRecords?: SemesterRecord[];
+  visible?: boolean;
 }
 
 export interface Certification {
@@ -97,6 +138,9 @@ export interface Certification {
   credentialId?: string;
   certificateUrl?: string;
   certificateImage?: string;
+  description?: string;
+  displayOrder?: number;
+  visible?: boolean;
 }
 
 export interface Achievement {
@@ -108,6 +152,8 @@ export interface Achievement {
   url?: string;
   proof?: string;
   category: 'Hackathons' | 'Coding' | 'Academics' | 'Open Source' | 'Technical Events' | string;
+  displayOrder?: number;
+  visible?: boolean;
 }
 
 export interface CodingProfile {
@@ -118,6 +164,60 @@ export interface CodingProfile {
   rating?: string;
   stars?: string;
   solvedProblems?: string;
+  rank?: string;
+  displayOrder?: number;
+  visible?: boolean;
+}
+
+export interface SocialLink {
+  id: string;
+  platform: string;
+  username: string;
+  url: string;
+  icon: string;
+  displayOrder?: number;
+  visible?: boolean;
+}
+
+export interface ResumeConfig {
+  resumePath: string;
+  resumeUrl?: string;
+  enabled: boolean;
+}
+
+export interface SectionVisibility {
+  about: boolean;
+  skills: boolean;
+  projects: boolean;
+  experience: boolean;
+  education: boolean;
+  cgpa?: boolean;
+  certifications: boolean;
+  achievements: boolean;
+  learning: boolean;
+  journey: boolean;
+  codingProfiles: boolean;
+  contact: boolean;
+  recruiterSnapshot?: boolean;
+}
+
+export type AccentColor = 'emerald' | 'blue' | 'violet' | 'amber' | 'rose' | 'cyan';
+export type AppTheme = 'dark' | 'light' | 'system';
+export type AnimationIntensity = 'full' | 'subtle' | 'reduced';
+
+export interface GlobalSettings {
+  siteTitle: string;
+  browserTitle: string;
+  seoDescription: string;
+  accentColor: AccentColor;
+  defaultTheme: AppTheme;
+  navbarVisible: boolean;
+  footerVisible: boolean;
+  resumeButtonVisible: boolean;
+  contactSectionVisible: boolean;
+  socialLinksVisible: boolean;
+  animationIntensity: AnimationIntensity;
+  sectionVisibility: SectionVisibility;
 }
 
 export interface Contact {
@@ -147,8 +247,10 @@ export interface Profile {
   state: string;
   country: string;
   degree: string;
+  branch?: string;
   college: string;
   graduationYear: number | string;
+  graduationLabel: string;
   statusAvailability: string;
   recruiterHighlights: string[];
   avatarUrl?: string;
@@ -166,4 +268,7 @@ export interface PortfolioData {
   certifications: Certification[];
   achievements: Achievement[];
   codingProfiles: CodingProfile[];
+  socialLinks: SocialLink[];
+  resume: ResumeConfig;
+  settings: GlobalSettings;
 }

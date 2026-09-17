@@ -90,6 +90,36 @@ export const Education: React.FC = () => {
                 </div>
               )}
 
+              {/* Semester Records Breakdown */}
+              {item.semesterRecords && item.semesterRecords.length > 0 && (
+                <div className="mt-4 pt-4 border-t border-zinc-100 dark:border-zinc-800/80">
+                  <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3">
+                    <Award className="w-3.5 h-3.5 text-emerald-500" />
+                    <span>Semester Breakdown</span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
+                    {item.semesterRecords.map((sem, sIdx) => (
+                      <div
+                        key={sIdx}
+                        className="p-2.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40 text-xs"
+                      >
+                        <div className="font-semibold text-zinc-800 dark:text-zinc-200">
+                          {sem.semester}
+                        </div>
+                        <div className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-medium mt-0.5">
+                          {sem.sgpa ? `SGPA: ${sem.sgpa}` : sem.cgpa ? `CGPA: ${sem.cgpa}` : ''}
+                        </div>
+                        {sem.notes && (
+                          <div className="text-[10px] text-zinc-500 truncate mt-0.5">
+                            {sem.notes}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Academic achievements if present */}
               {item.academicAchievements && item.academicAchievements.length > 0 && (
                 <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-zinc-800/80">

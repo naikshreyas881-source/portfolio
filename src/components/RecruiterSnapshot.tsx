@@ -11,11 +11,14 @@ export const RecruiterSnapshot: React.FC = () => {
   const inProgressCount = projects.filter(p => p.status === 'In Progress').length;
   const activeLearningCount = learningGoals.filter(g => g.status === 'Active').length;
 
+  const primaryEdu = data.education[0];
+  const cgpaHighlight = primaryEdu?.cgpa ? ` • ${primaryEdu.cgpa} CGPA` : '';
+
   const cards = [
     {
       title: 'Current Status',
-      value: `${profile.degree.replace('Bachelor of Engineering in ', 'B.E. ')}`,
-      detail: `${profile.college} (Graduating ${profile.graduationYear})`,
+      value: `${profile.degree.replace('Bachelor of Engineering in ', 'B.E. ')}${cgpaHighlight}`,
+      detail: `${profile.college} (${profile.graduationLabel || "JNNCE '28"} • Graduating ${profile.graduationYear || 2028})`,
       icon: <GraduationCap className="w-4 h-4 text-indigo-400" />,
     },
     {

@@ -40,8 +40,8 @@ education: [
     degree: "Bachelor of Engineering (B.E.)",
     field: "Computer Science & Engineering",
     institution: "JNN College of Engineering (JNNCE)",
-    startYear: 2023,
-    endYear: 2027,
+    startYear: 2024,
+    endYear: 2028,
     cgpa: "8.92", // <-- Set your CGPA here
     semester: "4th Semester", // <-- Update your current semester
     // ...

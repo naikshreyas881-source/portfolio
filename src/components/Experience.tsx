@@ -7,6 +7,10 @@ export const Experience: React.FC = () => {
   const { data } = usePortfolio();
   const { experience } = data;
 
+  if (!experience || experience.length === 0) {
+    return null;
+  }
+
   const hasCorporate = experience.some(e => !e.isAcademicOrLearning);
   const sectionTitle = hasCorporate ? 'Work Experience' : 'Experience & Learning';
 

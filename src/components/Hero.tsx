@@ -30,7 +30,7 @@ export const Hero: React.FC = () => {
           {/* Status Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-xs font-medium mb-6">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>{profile.statusAvailability || "Undergraduate @ JNNCE • Graduating 2027"}</span>
+            <span>{profile.statusAvailability || `Undergraduate @ JNNCE • Graduating ${profile.graduationYear || 2028} (${profile.graduationLabel || "JNNCE '28"})`}</span>
           </div>
 
           {/* Greeting & Headline */}

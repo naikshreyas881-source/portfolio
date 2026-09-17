@@ -27,6 +27,8 @@ export const Projects: React.FC = () => {
   // Filter projects dynamically
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
+      if (project.visible === false) return false;
+
       const matchesCategory =
         selectedCategory === 'All' ||
         project.category.toLowerCase() === selectedCategory.toLowerCase();
