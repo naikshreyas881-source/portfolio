@@ -8,5 +8,14 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: process.env.GITHUB_PAGES ? '/portfolio/' : '/',
+  base: '/portfolio/',
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/index.js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name].[ext]'
+      }
+    }
+  }
 })
